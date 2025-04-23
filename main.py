@@ -32,7 +32,12 @@ def main():
 
 		#Makes screen black
 		screen.fill(screen_color)
+		
+		#Update player
 		player.draw(screen)
+		player.update(dt)
+
+		#Render game
 		pygame.display.flip()
 		# Sets clock
 		dt = clock.tick(60) / 1000
