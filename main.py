@@ -3,7 +3,8 @@ from constants import *
 from player import *
 
 
-
+updatable = pygame.sprite.Group()
+drawable = pygame.sprite.Group()
 
 def main():
 	# Initializes pygame
@@ -21,7 +22,9 @@ def main():
 	x = SCREEN_WIDTH / 2
 	y = SCREEN_HEIGHT / 2
 
+	Player.containers = (updatable, drawable)
 	player = Player(x, y, PLAYER_RADIUS)
+	
 
 	#Game loop
 	while True:
@@ -29,13 +32,16 @@ def main():
 			#X button works on window
 			if event.type == pygame.QUIT:
 				return
+		
+		updatable.update(dt)
 
 		#Makes screen black
 		screen.fill(screen_color)
 		
 		#Update player
-		player.draw(screen)
-		player.update(dt)
+		for draw in drawable:
+			draw.draw(screen)
+		
 
 		#Render game
 		pygame.display.flip()
