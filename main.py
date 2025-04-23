@@ -1,6 +1,6 @@
 import pygame
 from constants import *
-
+from player import *
 
 
 
@@ -17,6 +17,12 @@ def main():
 	clock = pygame.time.Clock()
 	dt = 0
 
+	#Player setup
+	x = SCREEN_WIDTH / 2
+	y = SCREEN_HEIGHT / 2
+
+	player = Player(x, y, PLAYER_RADIUS)
+
 	#Game loop
 	while True:
 		for event in pygame.event.get():
@@ -26,6 +32,7 @@ def main():
 
 		#Makes screen black
 		screen.fill(screen_color)
+		player.draw(screen)
 		pygame.display.flip()
 		# Sets clock
 		dt = clock.tick(60) / 1000
