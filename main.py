@@ -54,6 +54,11 @@ def main():
 			else:
 				pass
 
+			for shot in shots:
+				if obj.collide(shot) == True:
+					shot.kill()
+					obj.kill()
+
 		#Makes screen black
 		screen.fill(screen_color)
 		
