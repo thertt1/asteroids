@@ -1,3 +1,4 @@
+import sys
 import pygame
 from constants import *
 from player import *
@@ -59,7 +60,7 @@ def main():
 			for shot in shots:
 				if obj.collide(shot) == True:
 					shot.kill()
-					obj.kill()
+					obj.split()
 					score += 1
 
 		#Makes screen black
