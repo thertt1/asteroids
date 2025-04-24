@@ -20,6 +20,8 @@ def main():
 	clock = pygame.time.Clock()
 	dt = 0
 
+	score = 0
+
 	#Player setup
 	x = SCREEN_WIDTH / 2
 	y = SCREEN_HEIGHT / 2
@@ -49,7 +51,7 @@ def main():
 
 		for obj in asteroids:
 			if obj.collide(player) == True:
-				print("Game Over!")
+				print(f"Game Over! Your score was {score}")
 				quit()
 			else:
 				pass
@@ -58,6 +60,7 @@ def main():
 				if obj.collide(shot) == True:
 					shot.kill()
 					obj.kill()
+					score += 1
 
 		#Makes screen black
 		screen.fill(screen_color)
